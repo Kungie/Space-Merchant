@@ -1,18 +1,14 @@
-const { Client, Intents, Message } = require("discord.js");
-const { token } = require("../json/config.json");
-const command = require("./command");
+const Discord = require("discord.js");
+const config = require("../json/config.json");
+const intents = new Discord.Intents(32767);
+const client = new Discord.Client({ intents });
 
-// Create a new client instance
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
-
-client.once("ready", () => {
-  console.clear();
-  console.log("I'm Ready!");
-  client.user.setActivity("Porno", { type: "WATCHING" });
-});
+client.on("ready", () => console.log("Bot is online!"));
 
 client.on("messageCreate", message => {
-  console.log(message.content);
+	  console.log(message.content);
+
+	if (message.content == "hello") message.reply("Hello! Mate");
 });
 
-client.login(token);
+client.login(config.token);
