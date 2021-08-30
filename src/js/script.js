@@ -11,11 +11,16 @@ fs.readdirSync("./src/commands")
       .filter(file => file.endsWith(".js"))
       .forEach(file => {
           const command = require(`./commands/${file}`);
-
+          console.log(chalk.blue('Command ${command.name} loaded'))        
           client.commands.set(command.name, command);
       });
 
-client.on("ready", () => console.log("Bot is online!"));
+
+client.on("ready", () => {
+    console.clear(); 
+
+    console.log("Bot is online!")
+});
 
 client.on("messageCreate", message => {
 	  
