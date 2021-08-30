@@ -1,0 +1,28 @@
+{
+  "name": "space-merchant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "baslat"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kungie/Space-Merchant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kungie/Space-Merchant/issues"
+  },
+  "homepage": "https://github.com/Kungie/Space-Merchant#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "dayjs": "^1.8.36",
+    "discord.js": "^13.1.0",
+    "ms": "^2.1.2",
+    "pm2": "^5.1.1"
+  }
+}
