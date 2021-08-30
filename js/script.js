@@ -16,11 +16,11 @@ client.on("messageCreate", message => {
   switch (args[0]) {
     case "hello":
 
-      message.reply("Hello");
+      message.channel.send("Hello")
       break;
 
     case "say":
-      message.reply(args.slice(1).join(" "));
+      message.channel.send(args.slice(1).join(" "));
       break;
   }
 });
