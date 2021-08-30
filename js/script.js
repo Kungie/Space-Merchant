@@ -1,4 +1,4 @@
-const { Client, Intents } = require("discord.js");
+const { Client, Intents, Message } = require("discord.js");
 const { token } = require("../json/config.json");
 const command = require("./command");
 
@@ -6,12 +6,13 @@ const command = require("./command");
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 client.once("ready", () => {
+  console.clear();
   console.log("I'm Ready!");
   client.user.setActivity("Porno", { type: "WATCHING" });
+});
 
-  command(client, "test", (message) => {
-    message.channel.send("Test");
-  });
+client.on("messageCreate", message => {
+  console.log(message.content);
 });
 
 client.login(token);
