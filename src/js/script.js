@@ -2,10 +2,8 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const chalk = require("chalk");
 const config = require("../json/config.json");
-const intents = new Discord.Intents(32767);
-const client = new Discord.Client({ intents });
-
-client.commands = new Discord.Collection()
+const Client = require("../base/client");
+const client = new Client();
 
 fs.readdirSync("./src/commands")
       .filter(file => file.endsWith(".js"))
