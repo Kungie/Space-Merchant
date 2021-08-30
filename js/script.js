@@ -6,9 +6,23 @@ const client = new Discord.Client({ intents });
 client.on("ready", () => console.log("Bot is online!"));
 
 client.on("messageCreate", message => {
-	  console.log(message.content);
+	  
+  console.log(message.content);
+  
+  if (!message.content.startsWith(config.prefix)) return;
+	
+  const args = message.content.substring(config.prefix.length).split(/ +/);
 
-	if (message.content == "hello") message.reply("Hello! Mate");
+  switch (args[0]) {
+    case "hello":
+
+      message.reply("Hello");
+      break;
+
+    case "say":
+      message.reply(args.slice(1).join(" "));
+      break;
+  }
 });
 
 client.login(config.token);
