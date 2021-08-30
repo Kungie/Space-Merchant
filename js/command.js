@@ -1,12 +1,12 @@
-const { prefix } = require("../json/config.json");
+const { prefix } = require("../json/config.json"); //calling prefix variable from json file
 
-module.exports = (client, aliases, callback) => {
+module.exports = (client, aliases, callback) => {    //command handler 
 
-    if (typeof aliases === "string"){
+    if (typeof aliases === "string"){   // if aliases is a string puts it in an array
         aliases = [aliases]
     }
 
-    client.on("message", message => {
+    client.on("message", message => { //listens messages and responds them
         const { content } = message
 
         aliases.forEach((alias) => {
