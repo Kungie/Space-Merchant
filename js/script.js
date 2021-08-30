@@ -7,6 +7,18 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 client.once('ready', () => {
 	console.log("I'm Ready!");
+
+    command(client, "test", (message) =>{
+
+        message.reply("Test")
+    })
+
+
+
+
+
+
+
 });
 
 client.login(token);
