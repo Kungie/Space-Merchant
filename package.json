@@ -2,7 +2,7 @@
   "name": "space-merchant",
   "version": "1.0.0",
   "description": "",
-  "main": "js/script.js",
+  "main": "src/js/script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "baslat"
@@ -22,6 +22,7 @@
     "chalk": "^4.1.2",
     "dayjs": "^1.8.36",
     "discord.js": "^13.1.0",
+    "fs": "^0.0.1-security",
     "ms": "^2.1.2",
     "nodemon": "^2.0.12",
     "pm2": "^5.1.1"

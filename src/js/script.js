@@ -1,13 +1,25 @@
 const Discord = require("discord.js");
+const fs = require("fs");
+const chalk = require("chalk");
 const config = require("../json/config.json");
 const intents = new Discord.Intents(32767);
 const client = new Discord.Client({ intents });
+
+client.commands = new Discord.Collection()
+
+fs.readdirSync("./src/commands")
+      .filter(file => file.endsWith(".js"))
+      .forEach(file => {
+          const command = require(`./commands/${file}`);
+
+          client.commands.set(command.name, command);
+      });
 
 client.on("ready", () => console.log("Bot is online!"));
 
 client.on("messageCreate", message => {
 	  
-  console.log(message.content);
+  console.log(chalk.red(message.content));
   
   if (!message.content.startsWith(config.prefix)) return;
 	
