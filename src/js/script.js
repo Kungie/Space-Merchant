@@ -17,13 +17,10 @@ for (const file of commandFiles) {
 client.once('ready', () => {
 	console.log("I'm Ready!");
 	client.user.setActivity('Star Wars', { type: 'WATCHING'});
-	client.user.setStatus("dnd");
 });
 
 client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) {
-		interaction.reply("Invalid Command")
-	};
+	if (!interaction.isCommand()) return;
 
 	const command = client.commands.get(interaction.commandName);
 
