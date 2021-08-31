@@ -16,7 +16,7 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
 	console.log("I'm Ready!");
-	client.user.setActivity('...', { type: 'STREAMING'});
+	client.user.setActivity('Star Wars', { type: 'WATCHING'});
 });
 
 client.on('interactionCreate', async interaction => {
