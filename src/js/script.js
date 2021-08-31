@@ -13,14 +13,6 @@ client.once('ready', () => {
 // Login to Discord with your client's token
 client.login(token);
 
-// fs.readdirSync("./src/commands")
-//       .filter(file => file.endsWith(".js"))
-//       .forEach(file => {
-//           const command = require(`./commands/${file}`);
-//           console.log(chalk.blue('Command ${command.name} loaded'))        
-//           client.commands.set(command.name, command);
-//       });
-
 
 // client.on("ready", () => {
 //     console.clear(); 
