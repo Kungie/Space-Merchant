@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Kungie/Space-Merchant#readme",
   "dependencies": {
+    "@dicebear/avatars": "^4.8.5",
     "@discordjs/builders": "^0.5.0",
     "@discordjs/rest": "^0.1.0-canary.0",
     "chalk": "^4.1.2",
