@@ -6,7 +6,7 @@ const Embed = new MessageEmbed()
 	.setTitle('Space Merchant Commands')
 	.setURL('https://discord.js.org/')
 	.setAuthor('Space Merchant', 'https://imgur.com/1mMaiQH.png', 'https://discord.js.org')
-	.setDescription('Description')
+	.setDescription('Description goes here')
 	.setThumbnail('https://imgur.com/1mMaiQH.png')
 	.addFields(
 		{ name: 'Commands:', value: 'The way you use the bot.' },
