@@ -6,14 +6,19 @@ module.exports = {
 	.setName('image')
 	.setDescription('Generates a random image!')
     .addIntegerOption(option =>
-        option.setName('number_01-100')
+        option.setName('number')
             .setDescription('Number')
             .setRequired(true)),
 	async execute(interaction) {
-		var num = (interaction.options.getInteger("number_01-100"))
+		var num = (interaction.options.getInteger("number"))
+
+		if (num > 99){
+			await interaction.reply("Please enter a number less then 100.")
+			return;
+		}
 
 		const Embed = new MessageEmbed()
-		.setImage(`https://picsum.photos/200/3${num}`)
+		.setImage(`https://picsum.photos/20${num}`)
 		.setFooter('From Space Merchant', 'https://imgur.com/1mMaiQH.png');
 		await interaction.reply({ embeds: [Embed] })
 		num = num + 5;
