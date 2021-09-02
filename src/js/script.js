@@ -69,6 +69,15 @@ client.on('guildMemberAdd', member => {
 	const channel = client.channels.cache.get('882916429463171113');
 
 	channel.send(userMention(member.user.id) + " joined the server!")
+
+	let data3 = "\n" + member.user.tag + " joined the server " + member.guild.name
+  
+	// Write data in 'Output.txt' . 
+	fs.appendFile('../Spy-Log.txt', data3, (err) => { 
+      
+    // In case of a error throw err. 
+    if (err) throw err; 
+	}) 
 })
 
 client.login(token);
