@@ -1,9 +1,9 @@
 const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('../json/config.json');
 const fs = require('fs');
-const { userMention, channelMention } = require('@discordjs/builders');
+const { userMention, channelMention, memberNicknameMention } = require('@discordjs/builders');
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.GUILD_MEMBERS] });
 client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('../commands').filter(file => file.endsWith('.js'));
@@ -18,7 +18,7 @@ for (const file of commandFiles) {
 client.once('ready', () => {
 	console.log("I'm Ready!");
 	client.user.setActivity('Star Wars', { type: 'WATCHING'});
-	client.user.setStatus("dnd");
+	client.user.setStatus("online");
 });
 
 client.on('interactionCreate', async interaction => {
@@ -50,12 +50,8 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.on('messageCreate', message => {
-	
-	const channel = client.channels.cache.get('882752048821567558');
 
 	if (message.author.bot === false){
-
-	channel.send( userMention(message.author.id) + " typed " + '"' + message.content + '" in the channel ' + channelMention(message.channelId));
 
 	// Data which will write in a file. 
 	let data2 = "\n" + message.author.tag + " typed " + '"' + message.content + '" in the channel ' + message.channel.name
@@ -66,6 +62,15 @@ client.on('messageCreate', message => {
     // In case of a error throw err. 
     if (err) throw err; 
 	}) 
-}});
+}else if (message.content === "" ){
+	return;
+}
+});
+
+client.on('guildMemberAdd', member => {
+	const channel = client.channels.cache.get('882916429463171113');
+
+	channel.send(userMention(member.user.id) + " joined the server!")
+})
 
 client.login(token);
