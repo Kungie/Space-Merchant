@@ -9,12 +9,15 @@ const Embed = new MessageEmbed()
 	.setDescription('Description goes here')
 	.setThumbnail('https://imgur.com/1mMaiQH.png')
 	.addFields(
-		{ name: 'Commands:', value: 'The way you use the bot.' },
-		{ name: '\u200B', value: '\u200B' },
-		{ name: 'help', value: 'Replies with\nthis message.', inline: true },
-		{ name: 'ping', value: 'Replies with\nPong!', inline: true },
+		{ name: 'Commands:', value:'The way you use the bot.'},
+		{ name: 'help', value: 'Replies with this message.'},
+		{ name: 'ping', value: 'Replies with Pong!'},
+		{ name: 'ban', value: 'Bans a user from the server.'},
+		{ name: 'kick', value: 'Kicks a user from the server.'},
+		{ name: 'image', value: 'Shows a random image.'},
+		{ name: 'avatar', value: 'Shows the avatar of a targeted user.'},
 	)
-	.addField('serverinfo', 'Replies with\nserver info.', true)
+	.addField('serverinfo', 'Replies with server info.', true)
 	.setTimestamp()
 	.setFooter('From Space Merchant', 'https://imgur.com/1mMaiQH.png');
 
