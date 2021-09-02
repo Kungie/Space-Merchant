@@ -9,7 +9,7 @@ const Embed = new MessageEmbed()
 	.setDescription('Description goes here')
 	.setThumbnail('https://imgur.com/1mMaiQH.png')
 	.addFields(
-		{ name: 'Commands:', value:'The way you use the bot.'},
+		{ name: 'Commands:', value:'\u200B'},
 		{ name: 'help', value: 'Replies with this message.'},
 		{ name: 'ping', value: 'Replies with Pong!'},
 		{ name: 'ban', value: 'Bans a user from the server.'},
