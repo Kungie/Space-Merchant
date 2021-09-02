@@ -19,6 +19,7 @@ module.exports = {
 
 		const Embed = new MessageEmbed()
 		.setImage(`https://picsum.photos/20${num}`)
+		.setTimestamp()
 		.setFooter('From Space Merchant', 'https://imgur.com/1mMaiQH.png');
 		await interaction.reply({ embeds: [Embed] })
 		num = num + 5;

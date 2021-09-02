@@ -14,7 +14,7 @@ module.exports = {
         console.log(member.user.avatar);
         const Embed = new MessageEmbed()
 	        .setColor('#671fe3')
-	        .setDescription('Users Avatar')
+	        .setDescription("User's Avatar")
             .setImage(`https://cdn.discordapp.com/avatars/${member.id}/${member.user.avatar}.png?size=256`)
 		await interaction.reply({ embeds: [Embed] })
 	},
