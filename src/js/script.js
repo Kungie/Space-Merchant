@@ -32,19 +32,17 @@ client.on('interactionCreate', async interaction => {
 
 	try {
 		await command.execute(interaction);
-		console.log( "The command " + interaction.commandName + " used.")
+		console.log( "The command '" + interaction.commandName + "' used by '" + interaction.user.tag + "' in the channel '" + interaction.channel.name + "' in " + interaction.guild.name)
 	} catch (error) {
 		console.error(error);
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
 
- client.on('typingStart', user => {
- 	
-	let data1 = "\n" + user.user.tag + " started typing in the channel " + user.channel.name + " in " + user.guild.name
+client.on('typingStart', user => {	
+	let data1 = "\n" + user.user.tag + " started typing in the channel '" + user.channel.name + "' in " + user.guild.name
 
-	fs.appendFile('../Spy-Log.txt', data1, (err) => { 
-      
+	fs.appendFile('../Spy-Log.txt', data1, (err) => {     
 		// In case of a error throw err. 
 		if (err) throw err; 
 	}) 
@@ -56,10 +54,8 @@ client.on('messageCreate', message => {
 
 	// Data which will write in a file. 
 	let data2 = "\n" + message.author.tag + " typed " + '"' + message.content + '" in the channel ' + message.channel.name
-  
 	// Write data in 'Output.txt' . 
 	fs.appendFile('../Spy-Log.txt', data2, (err) => { 
-      
     // In case of a error throw err. 
     if (err) throw err; 
 	}) 
@@ -74,10 +70,8 @@ client.on('guildMemberAdd', member => {
 	channel.send(userMention(member.user.id) + " joined the server!")
 
 	let data3 = "\n" + member.user.tag + " joined the server " + member.guild.name
-  
 	// Write data in 'Output.txt' . 
 	fs.appendFile('../Spy-Log.txt', data3, (err) => { 
-      
     // In case of a error throw err. 
     if (err) throw err; 
 	}) 
