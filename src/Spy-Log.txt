@@ -6,3 +6,4 @@ Spy Log
 Eren#7654 typed "Intents" in the channel genel
 Eren#7654 started typing in the channel genel in SM Test Sunucusu
 Eren#7654 typed "bekle" in the channel genel
+Eren#7654 typed "/adsad" in the channel genel

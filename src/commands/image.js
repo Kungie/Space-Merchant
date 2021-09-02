@@ -19,6 +19,5 @@ module.exports = {
 		.setTimestamp()
 		.setFooter('From Space Merchant', 'https://imgur.com/1mMaiQH.png');
 		await interaction.reply({ embeds: [Embed] })
-		console.log(num);
 	},
 };
