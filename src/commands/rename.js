@@ -19,6 +19,7 @@ module.exports = {
         }
         const member = interaction.options.getMember('target');
         const newName = interaction.options.getString('new-name');
+        member.setNickname(newName);
         console.log(member)
         await interaction.reply('Username has been reset.');
 	},
