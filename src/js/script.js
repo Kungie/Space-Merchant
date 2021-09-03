@@ -3,7 +3,7 @@ const { token } = require('../json/config.json');
 const fs = require('fs');
 const { userMention, channelMention, memberNicknameMention } = require('@discordjs/builders');
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.GUILD_MEMBERS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS] });
 client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('../commands').filter(file => file.endsWith('.js'));
@@ -75,6 +75,30 @@ client.on('guildMemberAdd', member => {
     // In case of a error throw err. 
     if (err) throw err; 
 	}) 
+})
+
+client.on('guildMemberRemove', member => {
+	const channel = client.channels.cache.get('882916429463171113');
+
+	channel.send(userMention(member.user.id) + " left the server!")
+
+	let data4 = "\n" + member.user.tag + " left the server " + member.guild.name
+	// Write data in 'Output.txt' . 
+	fs.appendFile('../Spy-Log.txt', data4, (err) => { 
+    // In case of a error throw err. 
+    if (err) throw err; 
+	}) 
+})
+
+client.on("messageDelete",  message => {
+	const channel = client.channels.cache.get('882916429463171113');
+
+	channel.send(userMention(message.author.id) + "' message has been deleted by someone!")
+})
+
+client.on("guildBanAdd", ban =>{
+	const channel = client.channels.cache.get('882916429463171113');
+ 	channel.send(userMention(ban.user.id) + " has been banned!" )
 })
 
 client.login(token);
