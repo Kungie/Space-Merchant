@@ -43,6 +43,7 @@ client.on('interactionCreate', async interaction => {
 	}
 
 	try {
+		if(interaction.isButton()) return;
 		await command.execute(interaction);
 		console.log( "The command '" + interaction.commandName + "' used by '" + interaction.user.tag + "' in the channel '" + interaction.channel.name + "' in " + interaction.guild.name)
 	} catch (error) {
