@@ -26,10 +26,6 @@ client.on('interactionCreate', async interaction => {
 
 	const command = client.commands.get(interaction.commandName);
 
-	if (!command){
-		interaction.reply("Invalid Command")
-	};
-
 	try {
 		await command.execute(interaction);
 		console.log( "The command '" + interaction.commandName + "' used by '" + interaction.user.tag + "' in the channel '" + interaction.channel.name + "' in " + interaction.guild.name)
