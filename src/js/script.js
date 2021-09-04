@@ -26,6 +26,22 @@ client.on('interactionCreate', async interaction => {
 
 	const command = client.commands.get(interaction.commandName);
 
+	if (!command && !interaction.isButton()){
+		return;
+	};
+
+	if(interaction.isButton()){
+		if(interaction.customId === 'button-yes'){
+			interaction.channel.send("You voted 'Yes'.")
+		}
+		else if(interaction.customId === 'button-no'){
+			interaction.channel.send("You voted 'No'.")
+		}
+		else{
+			interaction.channel.send('Some error occurred!')
+		}
+	}
+
 	try {
 		await command.execute(interaction);
 		console.log( "The command '" + interaction.commandName + "' used by '" + interaction.user.tag + "' in the channel '" + interaction.channel.name + "' in " + interaction.guild.name)
