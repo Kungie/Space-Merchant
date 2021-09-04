@@ -20,11 +20,27 @@ client.once('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) {
-		interaction.reply("Invalid Command")
+	if (!interaction.isCommand() && !interaction.isButton()) {
+		return;
 	};
 
 	const command = client.commands.get(interaction.commandName);
+
+	if (!command && !interaction.isButton()){
+		return;
+	};
+
+	if(interaction.isButton()){
+		if(interaction.customId === 'button-yes'){
+			interaction.channel.send("You voted 'Yes'.")
+		}
+		else if(interaction.customId === 'button-no'){
+			interaction.channel.send("You voted 'No'.")
+		}
+		else{
+			interaction.channel.send('Some error occurred!')
+		}
+	}
 
 	try {
 		await command.execute(interaction);
