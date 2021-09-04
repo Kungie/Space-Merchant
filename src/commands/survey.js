@@ -7,9 +7,6 @@ module.exports = {
         .setDescription('Creates and shows a survey that you have typed in.')
         .addStringOption(option => option.setName('survey').setDescription('Write a survey that will be displayed.').setRequired(true)),
         async execute(interaction) {
-            const embed = new MessageEmbed()
-                .setColor('#671fe3')
-                .setDescription(interaction.options.getString('survey'))
 
             const row = new MessageActionRow()
                 .addComponents(
@@ -22,6 +19,10 @@ module.exports = {
                         .setLabel('No')
                         .setStyle('DANGER')
                 )
+
+            const embed = new MessageEmbed()
+                .setColor('#671fe3')
+                .setDescription(interaction.options.getString('survey'))
 
             await interaction.reply({embeds: [embed], components: [row]});
         }
