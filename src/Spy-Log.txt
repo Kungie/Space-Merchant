@@ -1,3 +1,5 @@
 Spy Log
 
 //START//
+Çınar#6676 typed "MessageEmbed field values must be non-empty strings." in the channel genel
+Çınar#6676 typed ".addFields({name:'buttons', components:row, inline:true})" in the channel genel
